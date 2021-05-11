@@ -8,6 +8,7 @@ public interface Bicycle {
      void brake();
      int currentSpeed();
      int stop();
+     BicycleType getBicycleType();
 }
 
 //public class Bicycles {

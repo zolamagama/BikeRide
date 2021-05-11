@@ -1,8 +1,7 @@
 package bicycles;
 
-import models.MountainBike;
-import models.RoadBike;
-import models.Tandem;
+
+import models.*;
 import rides.*;
 
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,7 @@
 package models;
 
+import bicycles.BicycleType;
+
 public class Tandem extends BicycleBase {
 
     @Override
@@ -13,6 +15,10 @@ public class Tandem extends BicycleBase {
 
     public void brake() {
         changeSpeed(-7);
+    }
+    @Override
+    public BicycleType getBicycleType() {
+        return BicycleType.Tandem;
     }
 
 }

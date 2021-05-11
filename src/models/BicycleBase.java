@@ -14,13 +14,16 @@ public abstract class BicycleBase implements Bicycle {
 
     @Override
     public int currentSpeed() {
-        return speed;
-
+        if (speed < 0) {
+            return 0;
+        } else {
+            return speed;
+        }
     }
+
 
     @Override
     public int stop() {
         return speed = 0;
-
-    }
+}
 }
