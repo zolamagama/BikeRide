@@ -9,7 +9,7 @@ import java.util.List;
 public class FunRide {
     private List<Bicycle> bicycleList = new ArrayList<>();
     private int maximumBikes;
-    private int bikeCounter = 0;
+    private int bikeCounter;
 
     public FunRide(int max) {
         this.maximumBikes = max;
@@ -18,6 +18,7 @@ public class FunRide {
     public void accept(Bicycle bicycle) {
         if (bikeCounter < maximumBikes) {
             bicycleList.add(bicycle);
+            bikeCounter++;
         }
 
     }
@@ -34,6 +35,6 @@ public class FunRide {
 
     }
     public int getEnteredCount() {
-        return bikeCounter;
+        return bicycleList.size();
     }
 }
