@@ -1,8 +1,10 @@
 package bicycles;
 
-import models.RoadBike;
+
 import org.junit.jupiter.api.Test;
 import rides.BikeRideOne;
+import rides.BikeRideThree;
+import rides.BikeRideTwo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,127 +12,114 @@ public class BicycleSpecificationTest {
 
     @Test
 
-    public void shouldAccelerateForRoadBike () {
+    public void shouldBeAbleToExecuteBikeRideOneForRoadBike () {
         BicycleSpecification bicycleSpecification = new BicycleSpecification(11, 4, BicycleType.RoadBike);
         Bicycle roadBike = new BicycleFromSpec(bicycleSpecification);
-        roadBike.accelerate();
-        roadBike.accelerate();
+        BikeRide bikeRide = new BikeRideOne(roadBike);
+        bikeRide.ride(roadBike);
 
-        assertEquals(22, roadBike.currentSpeed());
+        assertEquals(36, roadBike.currentSpeed());
 
     }
 
     @Test
 
-    public void shouldBrakeForRoadBike () {
+    public void shouldBeAbleToExecuteBikeRideTwoForRoadBike () {
         BicycleSpecification bicycleSpecification = new BicycleSpecification(11, 4, BicycleType.RoadBike);
         Bicycle roadBike = new BicycleFromSpec(bicycleSpecification);
-        roadBike.accelerate();
-        roadBike.brake();
-        roadBike.brake();
+        BikeRideTwo bikeRideTwo = new BikeRideTwo(roadBike);
 
+        bikeRideTwo.ride(roadBike);
 
-        assertEquals(3, roadBike.currentSpeed());
-
-    }
-    @Test
-
-    public void shouldBeAbleToStopForRoadBike () {
-        BicycleSpecification bicycleSpecification = new BicycleSpecification(11, 4, BicycleType.RoadBike);
-        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification);
-        roadBike.accelerate();
-        roadBike.accelerate();
-        roadBike.accelerate();
-        roadBike.brake();
-        roadBike.stop();
 
         assertEquals(0, roadBike.currentSpeed());
+
     }
 
     @Test
 
-    public void shouldAccelerateForMountainBike () {
+    public void shouldBeAbleToExecuteBikeRideThreeForRoadBike () {
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(11, 4, BicycleType.RoadBike);
+        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification);
+        BikeRideThree bicycle = new BikeRideThree(roadBike);
+        bicycle.ride(roadBike);
+
+        assertEquals(42, roadBike.currentSpeed());
+
+    }
+
+    @Test
+
+    public void shouldBeAbleToExecuteBikeRideOneForMountainBike () {
+    BicycleSpecification bicycleSpecification = new BicycleSpecification(5, 3, BicycleType.MountainBike);
+    Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification);
+    BikeRideOne bicycle = new BikeRideOne(mountainBike);
+    bicycle.ride(mountainBike);
+
+        assertEquals(14, mountainBike.currentSpeed());
+
+    }
+
+    @Test
+
+    public void shouldBeAbleToExecuteBikeRideTwoForMountainBike () {
         BicycleSpecification bicycleSpecification = new BicycleSpecification(5, 3, BicycleType.MountainBike);
         Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification);
-        mountainBike.accelerate();
-        mountainBike.accelerate();
-
-
-        assertEquals(10, mountainBike.currentSpeed());
-
-    }
-
-    @Test
-
-    public void shouldBrakeForMountainBike () {
-        BicycleSpecification bicycleSpecification = new BicycleSpecification(5, 3, BicycleType.MountainBike);
-        Bicycle mountain = new BicycleFromSpec(bicycleSpecification);
-        mountain.accelerate();
-        mountain.accelerate();
-        mountain.brake();
-        mountain.brake();
-
-
-        assertEquals(4, mountain.currentSpeed());
-
-    }
-
-    @Test
-
-    public void shouldBeAbleToStopForMountainBike () {
-        BicycleSpecification bicycleSpecification = new BicycleSpecification(5, 3, BicycleType.MountainBike);
-        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification);
-        mountainBike.accelerate();
-        mountainBike.accelerate();
-        mountainBike.accelerate();
-        mountainBike.brake();
-        mountainBike.stop();
+        BikeRideTwo bicycle = new BikeRideTwo(mountainBike);
+        bicycle.ride(mountainBike);
 
         assertEquals(0, mountainBike.currentSpeed());
-    }
-
-    @Test
-
-    public void shouldAccelerateForTandemBike () {
-        BicycleSpecification bicycleSpecification = new BicycleSpecification(12, 7, BicycleType.Tandem);
-        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
-        tandemBike.accelerate();
-        tandemBike.accelerate();
-
-
-        assertEquals(24, tandemBike.currentSpeed());
-
-    }
-    @Test
-
-    public void shouldBrakeForTandemBike () {
-        BicycleSpecification bicycleSpecification = new BicycleSpecification(12, 7, BicycleType.Tandem);
-        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
-        tandemBike.accelerate();
-        tandemBike.accelerate();
-        tandemBike.brake();
-        tandemBike.brake();
-
-
-        assertEquals(10, tandemBike.currentSpeed());
 
     }
 
     @Test
 
-    public void shouldStopForTandemBike () {
-        BicycleSpecification bicycleSpecification = new BicycleSpecification(12, 7, BicycleType.Tandem);
-        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
-        tandemBike.accelerate();
-        tandemBike.accelerate();
-        tandemBike.brake();
-        tandemBike.brake();
-        tandemBike.stop();
+    public void shouldBeAbleToExecuteBikeRideThreeForMountainBike () {
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(5, 3, BicycleType.MountainBike);
+        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification);
+        BikeRideThree bicycle = new BikeRideThree(mountainBike);
+        bicycle.ride(mountainBike);
 
-
-        assertEquals(0, tandemBike.currentSpeed());
+        assertEquals(12, mountainBike.currentSpeed());
 
     }
+
+    @Test
+
+    public void shouldBeAbleToExecuteBikeRideOneForTandemBike () {
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12, 7, BicycleType.Tandem);
+        Bicycle tandem = new BicycleFromSpec(bicycleSpecification);
+        BikeRideOne bicycle = new BikeRideOne(tandem);
+        bicycle.ride(tandem);
+
+        assertEquals(34, tandem.currentSpeed());
+
+    }
+
+    @Test
+
+    public void shouldBeAbleToExecuteBikeRideTwoForTandemBike () {
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12, 7, BicycleType.Tandem);
+        Bicycle tandem = new BicycleFromSpec(bicycleSpecification);
+        BikeRideTwo bicycle = new BikeRideTwo(tandem);
+        bicycle.ride(tandem);
+
+        assertEquals(0, tandem.currentSpeed());
+
+    }
+
+    @Test
+
+    public void shouldBeAbleToExecuteBikeRideThreeForTandemBike () {
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12, 7, BicycleType.Tandem);
+        Bicycle tandem = new BicycleFromSpec(bicycleSpecification);
+        BikeRideThree bicycle = new BikeRideThree(tandem);
+        bicycle.ride(tandem);
+
+        assertEquals(30, tandem.currentSpeed());
+
+    }
+
 
     @Test
 
@@ -163,6 +152,4 @@ public class BicycleSpecificationTest {
 
     }
 
-
-    
 }

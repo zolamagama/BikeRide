@@ -1,6 +1,6 @@
 package models;
 
-import bicycles.Bicycle;
+
 import bicycles.BicycleType;
 
 
