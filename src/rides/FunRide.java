@@ -9,16 +9,16 @@ import java.util.List;
 public class FunRide {
     private List<Bicycle> bicycleList = new ArrayList<>();
     private int maximumBikes;
-    private int bikeCounter;
+//    private int bikeCounter;
 
     public FunRide(int max) {
         this.maximumBikes = max;
     }
 
     public void accept(Bicycle bicycle) {
-        if (bikeCounter < maximumBikes) {
+        if (bicycleList.size() < maximumBikes && !bicycleList.contains(bicycle)) {
             bicycleList.add(bicycle);
-            bikeCounter++;
+
         }
 
     }
