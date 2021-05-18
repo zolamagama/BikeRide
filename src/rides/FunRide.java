@@ -9,7 +9,7 @@ import java.util.List;
 public class FunRide {
     private List<Bicycle> bicycleList = new ArrayList<>();
     private int maximumBikes;
-//    private int bikeCounter;
+
 
     public FunRide(int max) {
         this.maximumBikes = max;

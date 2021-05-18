@@ -92,7 +92,6 @@ public class BicycleTest {
 
     }
 
-
     @Test
     public void shouldBeAbleToStopForTandemBike() {
         Tandem bicycle = new Tandem();

@@ -3,7 +3,6 @@ package bicycles;
 import models.MountainBike;
 import models.RoadBike;
 import models.Tandem;
-import models.Tandem;
 import org.junit.jupiter.api.Test;
 import rides.FunRide;
 
