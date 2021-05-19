@@ -1,8 +1,6 @@
 package bicycles;
 
-import models.MountainBike;
-import models.RoadBike;
-import models.Tandem;
+
 import org.junit.jupiter.api.Test;
 import rides.FunRide;
 
@@ -15,16 +13,16 @@ public class FunRideTest {
     @Test
 
     public void shouldBeAbleToCountForRoadBike() {
+
         FunRide funRide = new FunRide(6);
-        RoadBike roadBike = new RoadBike();
-        RoadBike roadBike1 = new RoadBike();
-        RoadBike roadBike2 = new RoadBike();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(11, 4, BicycleType.RoadBike);
+        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike2 = new BicycleFromSpec(bicycleSpecification);
+
         funRide.accept(roadBike);
         funRide.accept(roadBike1);
         funRide.accept(roadBike2);
-        //roadBike1 is already in the list therefore wont be counted
-        funRide.accept(roadBike);
-        funRide.accept(roadBike);
 
 
         assertEquals(3, funRide.getCountForType(BicycleType.RoadBike));
@@ -34,13 +32,14 @@ public class FunRideTest {
 
     public void shouldNotAbleToGoOverTheMaxForRoadBike() {
         FunRide funRide = new FunRide(5);
-        RoadBike roadBike = new RoadBike();
-        RoadBike roadBike1 = new RoadBike();
-        RoadBike roadBike2 = new RoadBike();
-        RoadBike roadBike3 = new RoadBike();
-        RoadBike blueRoadBike = new RoadBike();
-        RoadBike redRoadBike = new RoadBike();
-        RoadBike purpleRoadBike = new RoadBike();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(11, 4, BicycleType.RoadBike);
+        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike2 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle blueRoadBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle redRoadBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle purpleRoadBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike3 = new BicycleFromSpec(bicycleSpecification);
 
         funRide.accept(roadBike);
         funRide.accept(roadBike1);
@@ -59,9 +58,10 @@ public class FunRideTest {
 
     public void shouldBeAbleToCountForMountainBike() {
         FunRide funRide = new FunRide(5);
-        MountainBike mountainBike = new MountainBike();
-        MountainBike mountainBike1 = new MountainBike();
-        MountainBike mountainBike2 = new MountainBike();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(5,3, BicycleType.MountainBike);
+        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle mountainBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle mountainBike2 = new BicycleFromSpec(bicycleSpecification);
 
         funRide.accept(mountainBike);
         funRide.accept(mountainBike1);
@@ -75,12 +75,13 @@ public class FunRideTest {
 
     public void shouldNotAbleToGoOverTheMaxForMountainBike() {
         FunRide funRide = new FunRide(5);
-        MountainBike mountainBike = new MountainBike();
-        MountainBike mountainBike1 = new MountainBike();
-        MountainBike mountainBike2 = new MountainBike();
-        MountainBike mountainBike3 = new MountainBike();
-        MountainBike blueMountainBike = new MountainBike();
-        MountainBike redMountainBike = new MountainBike();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(5,3, BicycleType.MountainBike);
+        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle mountainBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle mountainBike2 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle mountainBike3 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle blueMountainBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle redMountainBike = new BicycleFromSpec(bicycleSpecification);
 
         funRide.accept(mountainBike);
         funRide.accept(mountainBike1);
@@ -99,9 +100,10 @@ public class FunRideTest {
 
     public void shouldBeAbleToCountForTandemBike() {
         FunRide funRide = new FunRide(5);
-        Tandem tandemBike = new Tandem();
-        Tandem tandemBike1 = new Tandem();
-        Tandem tandemBike2 = new Tandem();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12,7, BicycleType.Tandem);
+        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle tandemBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle tandemBike2 = new BicycleFromSpec(bicycleSpecification);
 
         funRide.accept(tandemBike);
         funRide.accept(tandemBike1);
@@ -116,13 +118,14 @@ public class FunRideTest {
 
     public void shouldNotAbleToGoOverTheMaxForTandemBike() {
         FunRide funRide = new FunRide(5);
-        Tandem tandemBike = new Tandem();
-        Tandem tandemBike1 = new Tandem();
-        Tandem tandemBike2 = new Tandem();
-        Tandem tandemBike3 = new Tandem();
-        Tandem blueTandemBike = new Tandem();
-        Tandem redTandemBike = new Tandem();
-        Tandem purpleTandemBike = new Tandem();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12,7, BicycleType.Tandem);
+        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle tandemBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle tandemBike2 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle tandemBike3 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle blueTandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle redTandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle purpleTandemBike = new BicycleFromSpec(bicycleSpecification);
 
         funRide.accept(tandemBike);
         funRide.accept(tandemBike1);
@@ -141,9 +144,12 @@ public class FunRideTest {
 
     public void shouldBeAbleToCountAllBikes() {
         FunRide funRide = new FunRide(5);
-        RoadBike roadBike = new RoadBike();
-        MountainBike mountainBike = new MountainBike();
-        Tandem tandemBike = new Tandem();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12,7, BicycleType.Tandem);
+        BicycleSpecification bicycleSpecification1 = new BicycleSpecification(5,3, BicycleType.MountainBike);
+        BicycleSpecification bicycleSpecification2 = new BicycleSpecification(11,4, BicycleType.RoadBike);
+        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification1);
+        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification2);
 
         funRide.accept(tandemBike);
         funRide.accept(mountainBike);
@@ -157,12 +163,15 @@ public class FunRideTest {
     
     public void shouldNotBeAbleToGetCountOverTheMaxForAllBikes() {
         FunRide funRide = new FunRide(5);
-        RoadBike roadBike = new RoadBike();
-        RoadBike roadBike1 = new RoadBike();
-        MountainBike mountainBike = new MountainBike();
-        MountainBike mountainBike1 = new MountainBike();
-        Tandem tandemBike = new Tandem();
-        Tandem tandemBike1 = new Tandem();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12,7, BicycleType.Tandem);
+        BicycleSpecification bicycleSpecification1 = new BicycleSpecification(5,3, BicycleType.MountainBike);
+        BicycleSpecification bicycleSpecification2 = new BicycleSpecification(11,4, BicycleType.RoadBike);
+        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification1);
+        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification2);
+        Bicycle tandemBike1 = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike1 = new BicycleFromSpec(bicycleSpecification1);
+        Bicycle mountainBike1 = new BicycleFromSpec(bicycleSpecification2);
 
 
         funRide.accept(tandemBike);
@@ -181,9 +190,12 @@ public class FunRideTest {
 
     public void shouldNotAcceptDuplicatesForAllBikes() {
         FunRide funRide = new FunRide(5);
-        RoadBike roadBike = new RoadBike();
-        MountainBike mountainBike = new MountainBike();
-        Tandem tandemBike = new Tandem();
+        BicycleSpecification bicycleSpecification = new BicycleSpecification(12,7, BicycleType.Tandem);
+        BicycleSpecification bicycleSpecification1 = new BicycleSpecification(5,3, BicycleType.MountainBike);
+        BicycleSpecification bicycleSpecification2 = new BicycleSpecification(11,4, BicycleType.RoadBike);
+        Bicycle tandemBike = new BicycleFromSpec(bicycleSpecification);
+        Bicycle roadBike = new BicycleFromSpec(bicycleSpecification1);
+        Bicycle mountainBike = new BicycleFromSpec(bicycleSpecification2);
 
         funRide.accept(tandemBike);
         funRide.accept(roadBike);
