@@ -1,6 +1,7 @@
-package bicycles;
+package specification;
 
 
+import bicycles.*;
 import org.junit.jupiter.api.Test;
 import rides.BikeRideOne;
 import rides.BikeRideThree;

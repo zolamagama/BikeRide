@@ -1,8 +1,7 @@
-package bicycles;
+package rides;
 
 
-import models.*;
-import rides.*;
+import specification.*;
 
 import org.junit.jupiter.api.Test;
 
